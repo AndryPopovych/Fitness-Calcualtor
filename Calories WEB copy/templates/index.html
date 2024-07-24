@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <title>BMR Calculator</title>
+  </head>
+  <body>
+    <div class="header">
+      <ul>
+        <li>
+          <img
+            src="{{ url_for('static', filename='Fitnessy-logo.png') }}"
+            alt="logo"
+            class="Fitnessy-logo"
+          />
+        </li>
+        <div class="main-nav-bar-buttons">
+          <li class="nav-item h1-header">Fitnessy</li>
+          <li class="nav-item">About Us</li>
+          <li class="nav-item">Help</li>
+          <li class="nav-item">Shop</li>
+        </div>
+        <li class="button-li">
+          <a class="premium-button" href="{{ url_for('premium_menu') }}" >Fit-Premium</a>
+        </li>
+        <div class="separator"></div>
+        <div class="login-signup-container">
+          <a href="#" class="login-link">Login</a>
+          <a href="#" class="signup-button">Sign Up</a>
+        </div>
+      </ul>
+    </div>
+    <form class="full-container" id="bmrForm">
+      <div class="container">
+        <h1 class="calc-name">BMR Calculator</h1>
+        <label for="weight">Weight:</label>
+        <input
+          type="number"
+          id="weight"
+          name="weight"
+          min="35"
+          max="180"
+          required
+        />
+        <span id="weightValue"></span><br />
+        <label for="height">Height:</label>
+        <input
+          type="number"
+          id="height"
+          name="height"
+          min="70"
+          max="220"
+          required
+        />
+        <span id="heightValue"></span><br />
+        <label for="age">Age:</label>
+        <input
+          type="number"
+          id="age"
+          name="age"
+          min="12"
+          max="120"
+          required
+        /><br />
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+          <option value="чоловік">Man</option>
+          <option value="жінка">Woman</option></select
+        ><br />
+        <label for="activity_level">Activity Level:</label>
+        <select id="activity_level" name="activity_level" required>
+          <option value="мала">Small</option>
+          <option value="помірна">Moderate</option>
+          <option value="середня">Medium</option>
+          <option value="висока">High</option></select
+        ><br />
+        <label for="body_fat_percentage">Body Fat Percentage:</label>
+        <input
+          type="number"
+          id="body_fat_percentage"
+          name="body_fat_percentage"
+          min="1"
+          max="100"
+          required
+        />
+        <span id="bodyFatValue"></span><br />
+        <label for="goal_option">Goal Option:</label>
+        <select id="goal_option" name="goal_option" required>
+          <option value="хороша форма">Good shape</option>
+          <option value="схуднути">Lose weight</option>
+          <option value="набрати масу">Gain weight</option>
+        </select>
+        <br />
+        <label for="goal_weight">Goal Weight:</label>
+        <input
+          type="number"
+          id="goal_weight"
+          name="goal_weight"
+          min="31"
+          max="180"
+          required
+        /><br />
+        <div class="calculation-container">
+          <input type="button" id="calculateButton" value="Calculate" />
+        </div>
+        <div class="result-container">
+          <h2 id="result">Result:</h2>
+          <p>Protein: <span id="proteinValue"></span></p>
+          <p>Fat: <span id="fatValue"></span></p>
+          <p>Carbs: <span id="carbsValue"></span></p>
+        </div>
+      </div>
+      <div class="container-button-fridge">
+        <a class="button-fridge" href="{{ url_for('fridge_chef') }}">Fridge Chef</a>
+      </div>
+    </form>
+    <script>
+      document
+        .getElementById("calculateButton")
+        .addEventListener("click", function () {
+          var xhr = new XMLHttpRequest();
+          var formData = new FormData(document.getElementById("bmrForm"));
+          xhr.open("POST", "/", true);
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+              var result = JSON.parse(xhr.responseText);
+              document.getElementById("proteinValue").innerText =
+                result.protein + " grams";
+              document.getElementById("fatValue").innerText =
+                result.fat + " grams";
+              document.getElementById("carbsValue").innerText =
+                result.carbs + " grams";
+              document.getElementById("result").innerText =
+                "Result: " + result.goal_calories + " kkal";
+            }
+          };
+          xhr.send(formData);
+        });
+
+      function openProject(url) {
+        window.open(url, "_blank").focus();
+      }
+    </script>
+  </body>
+</html>

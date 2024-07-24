@@ -1,0 +1,194 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.header {
+    background-color: #1f1f1f;
+    padding: 17px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 4px rgba(0, 0, 0, 0.1);
+    color: white;
+    position: relative;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li {
+    display: inline;
+    padding: 10px;
+}
+
+.login-signup-container {
+    display: flex;
+    align-items: center;
+}
+
+.login-signup-container a {
+    margin-left: 15px;
+    font-size: 16px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.login-signup-container .signup-button {
+    background-color: #4CAF50;
+    color: rgb(26, 24, 24);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.separator {
+    height: 30px;
+    border-left: 1px solid #fff;
+    margin: 0 15px;
+}
+
+.Fitnessy-logo,
+.profile-logo {
+    height: 50px;
+}
+
+.h1-header {
+    color: #bb86fc;
+    font-size: 2em;
+    text-align: center;
+}
+
+.nav-item {
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.main-nav-bar-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Change to center */
+    flex-grow: 1;
+}
+
+.nav-item:hover {
+    color: #bb86fc;
+}
+
+.button-li {
+    display: flex;
+    align-items: center;
+}
+
+.premium-button {
+    background-color: #bb86fc;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.premium-button:hover {
+    background-color: #7c4dff;
+}
+
+.full-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+    margin-bottom: 20px;
+}
+
+.calc-name {
+    color: #bb86fc;
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #bb86fc;
+    border-radius: 5px;
+    background-color: #121212;
+    color: #ffffff;
+}
+
+input[type="button"] {
+    width: 100%;
+    padding: 15px;
+    background-color: #bb86fc;
+    border: none;
+    border-radius: 25px;
+    color: #ffffff;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="button"]:hover {
+    background-color: #7c4dff;
+}
+
+.result-container {
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.result-container h2 {
+    color: #bb86fc;
+    font-size: 1.8em;
+}
+
+.result-container p {
+    font-size: 1.2em;
+}
+
+.container-button-fridge {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.button-fridge {
+    background-color: #bb86fc;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    color: #ffffff;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button-fridge:hover {
+    background-color: #7c4dff;
+}
